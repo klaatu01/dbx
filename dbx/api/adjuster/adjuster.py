@@ -85,7 +85,8 @@ class PropertyAdjuster(
         for element, _, __ in self.traverse(workflows):
 
             if isinstance(element, (V2dot0Workflow, JobTaskSettings)):
-                self._preprocess_libraries(element, additional_libraries)
+                if element.sql_task is None:
+                    self._preprocess_libraries(element, additional_libraries)
 
     def _new_cluster_handler(self, element: NewCluster):
         # driver_instance_pool_name -> driver_instance_pool_id

@@ -42,7 +42,8 @@ class SqlTaskAlert(FlexibleModel):
 
 
 class SqlFile(FlexibleModel):
-    file: str
+    path: str
+    source: str
 
 
 class SqlTask(FlexibleModel):
